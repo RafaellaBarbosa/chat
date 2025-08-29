@@ -23,10 +23,10 @@ class MessageBubble extends StatelessWidget {
     } else if (uri.scheme.contains('http')) {
       provider = NetworkImage(uri.toString());
     } else {
-      provider = FileImage(File(uri.toString()));
+      provider = FileImage(File(uri.path));
     }
 
-    return CircleAvatar(backgroundImage: provider);
+    return CircleAvatar(backgroundImage: provider, radius: 18);
   }
 
   @override
