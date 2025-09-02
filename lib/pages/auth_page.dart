@@ -15,6 +15,7 @@ class _AuthPageState extends State<AuthPage> {
 
   Future<void> _handleSubmit(AuthFormData formData) async {
     try {
+      if (!mounted) return;
       setState(() => _isLoading = true);
 
       if (formData.isLogin) {
@@ -28,7 +29,14 @@ class _AuthPageState extends State<AuthPage> {
         );
       }
     } catch (error) {
-      print(error.toString());
+      if (!mounted) return;
+
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text('Erro no login: ${error.toString()}'),
+          backgroundColor: Theme.of(context).colorScheme.error,
+        ),
+      );
     } finally {
       setState(() => _isLoading = false);
     }

@@ -3,6 +3,7 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 
 class ChatNotificationService with ChangeNotifier {
+  // ignore: prefer_final_fields
   List<ChatNotification> _items = [];
 
   int get itemsCount {

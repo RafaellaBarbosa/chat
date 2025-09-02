@@ -55,6 +55,7 @@ class _AuthFormState extends State<AuthForm> {
                 UserImagePicker(onImagePick: _handleImagePick),
               if (_formData.isSignup)
                 TextFormField(
+                  textInputAction: TextInputAction.next,
                   key: const ValueKey('name'),
                   initialValue: _formData.name,
                   onChanged: (name) => _formData.name = name,
